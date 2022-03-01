@@ -6,6 +6,9 @@ mod tests {
     #[actix_web::test]
     async fn it_works() {
         let mut _app = test::init_service(App::new().service(index)).await;
+        let req = test::TestRequest::default()
+            .insert_header(ContentType::plaintext())
+            .to_request();
     }
 }
 
