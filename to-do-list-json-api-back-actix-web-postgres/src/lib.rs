@@ -1,12 +1,13 @@
 #[cfg(test)]
 mod tests {
     use super::index;
+    use actix_web::http::header::ContentType;
     use actix_web::{test, App};
 
     #[actix_web::test]
     async fn it_works() {
         let mut _app = test::init_service(App::new().service(index)).await;
-        let req = test::TestRequest::default()
+        let _req = test::TestRequest::default()
             .insert_header(ContentType::plaintext())
             .to_request();
     }
